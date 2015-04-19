@@ -32,8 +32,8 @@ public class MPI_Lab1 {
         }
         Set<Integer> answer = new HashSet<Integer>();
         for (int i = 0; i < size; i++) {
-           Request request =  MPI.COMM_WORLD.Irecv(arrayRes, 0, N, MPI.INT, i, 0);      
-           request.Wait(); //ждать, пока не примем что-то         
+           MPI.COMM_WORLD.Recv(arrayRes, 0, N, MPI.INT, i, 0);      
+          // request.Wait(); //ждать, пока не примем что-то         
            if(checkArrays(arraySourse, arrayRes)) 
               answer.add(i);
         }    
